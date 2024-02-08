@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  python:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - cassandra
+    volumes:
+      - ./current.city.list.json:/app/current.city.list.json
+    restart: on-failure
+    container_name: python-1
+    networks:
+      - crawler-net
+
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    container_name: cassandra-1
+    networks:
+      - crawler-net
+
+networks:
+  crawler-net:
+    driver: bridge
