@@ -22,6 +22,12 @@ Ce projet vise à collecter des données météorologiques à partir de l'API Op
 * Vous pouvez accéder à l'API exposée à l'adresse http://localhost:5000 pour obtenir les données météorologiques.
 * Pour arrêter les services, utilisez la commande docker-compose down.
 
+* Il est aussi possible de visualiser les données à travers le terminal du container 'cassandra', pour cela :
+  - taper "cqlsh"
+  - puis "USE weatherjbob;"
+  - puis "SELECT * FROM cities;" pour voir tous les résultats ou "SELECT * FROM cities LIMIT x" en remplacant x par le nombre de lignes que vous souhaitez visualiser.
+ 
+
 --------Remarques
 
 - Assurez-vous que les ports 5000 et 9042 ne sont pas utilisés par d'autres applications sur votre machine.
